@@ -2,3 +2,5 @@ Git is a version control system.
 Git is free software.
 
 update this file and test the git .
+
+Git has a mutable index called stage.
