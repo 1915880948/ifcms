@@ -40,10 +40,10 @@ class ConsultController extends Controller {
             $result =(new Query())->select('a.id,a.question,a.answer,a.create_time,b.nickname,b.phone,c.number')->from('consult a')->leftJoin('user b','a.user_id=b.id')->leftJoin('product c','a.product_id=c.id');
             $count = Consult::find();
             if($search['value']){
-                $result = $result->andWhere(['like', 'question', "%{$search['value']}%"]);
-                $count = $count->andWhere(['like', 'question', "%{$search['value']}%"]);
+                $result = $result->andWhere(["like", 'question', "{$search['value']}"]);
+                $count = $count->andWhere(['like', 'question', "{$search['value']}"]);
             }
-            $result = $result->orderBy('a.id desc')->limit((int)$size)->offset($start)->all();
+            $result = $result->orderBy('id desc')->limit((int)$size)->offset($start)->all();
             $count = $count->count('id');
             return [
                 "recordsTotal" => $count,
