@@ -36,10 +36,10 @@ class ConsultController extends Controller {
             Yii::$app->response->format = 'json';
             $start = intval(Yii::$app->request->get('start'));
             $size = intval(Yii::$app->request->get('length',10));
-            $search = Yii::$app->request->get('search')['value'];
+            $search = Yii::$app->request->get('search');
             $result =(new Query())->select('a.id,a.question,a.answer,a.create_time,b.nickname,b.phone,c.number')->from('consult a')->leftJoin('user b','a.user_id=b.id')->leftJoin('product c','a.product_id=c.id');
             $count = Consult::find();
-            if($search){
+            if($search['value']){
                 $result = $result->andWhere(['like', 'question', "%{$search['value']}%"]);
                 $count = $count->andWhere(['like', 'question', "%{$search['value']}%"]);
             }
