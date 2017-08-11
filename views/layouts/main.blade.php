@@ -152,6 +152,11 @@
 <script src="/js/demo.js"></script>
 <script src="/js/helper.js"></script>
 <script src="/layer/layer.js"></script>
+<script>
+    $(function () {
+       $('a[href="'+window.location.pathname+'"]').parent('li').addClass('active').parents('li').addClass('active').addClass('menu-open');
+    });
+</script>
 @yield('foot-script')
 </body>
 </html>
