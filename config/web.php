@@ -22,6 +22,16 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'view'         => [
+            'class'            => 'app\common\blade\BladeView',
+            'defaultExtension' => 'blade.php',
+            'renderers'        => [
+                'blade' => [
+                    'class'     => 'app\common\blade\ViewRenderer',
+                    'cachePath' => '@runtime/cache',
+                ],
+            ],
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
