@@ -45,9 +45,8 @@ class Product extends \yii\db\ActiveRecord
             [['number'], 'string', 'max' => 15],
             [['picture'], 'string', 'max' => 200],
             [['picture_height', 'picture_width'], 'string', 'max' => 5],
-            [['style_name_en', 'style_name_cn'], 'string', 'max' => 10],
+            [['style_name_en', 'style_name_cn', 'tag'], 'string', 'max' => 30],
             [['series'], 'string', 'max' => 50],
-            [['tag'], 'string', 'max' => 30],
         ];
     }
 

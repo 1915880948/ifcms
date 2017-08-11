@@ -13,10 +13,10 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/skins/_all-skins.min.css">
     <link rel="stylesheet" href="/css/site.css">
     @yield('head-css')
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -152,11 +152,11 @@
 <script src="/js/demo.js"></script>
 <script src="/js/helper.js"></script>
 <script src="/layer/layer.js"></script>
+@yield('foot-script')
 <script>
     $(function () {
        $('a[href="'+window.location.pathname+'"]').parent('li').addClass('active').parents('li').addClass('active').addClass('menu-open');
     });
 </script>
-@yield('foot-script')
 </body>
 </html>

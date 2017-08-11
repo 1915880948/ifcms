@@ -20,7 +20,7 @@
 
     CHelper = {
         //七牛上传
-        uploadFile: function(ele, button, callback){
+        uploadFile: function(button, callback){
             var callback = callback || {};
             var uploader = Qiniu.uploader({
                 runtimes: 'html5,flash,html4',      // 上传模式，依次退化
@@ -85,11 +85,6 @@
                         // 每个文件上传时，处理相关的事情
                         if(typeof callback.UploadProgress == 'function') {
                             callback.UploadProgress(up, file);
-                            ele.parents('.row').find('.progress').removeClass('d-none');
-                            ele.parents('.row').find('.progress-bar').css('width', file.percent + '%');
-                        }else{
-                            ele.parents('.row').find('.progress').removeClass('d-none');
-                            ele.parents('.row').find('.progress-bar').css('width', file.percent + '%');
                         }
                     },
                     'FileUploaded': function(up, file, info) {
@@ -100,20 +95,13 @@
                         //    "key": "gogopher.jpg"
                         //  }
                         // 查看简单反馈
-                        var domain = up.getOption('domain');
-                        var res = JSON.parse(info);
-                        var sourceLink = domain +"/"+ res.key; //获取上传成功后的文件的Url
-                        ele.parents('.row').find('.progress').addClass('d-none');
-                        ele.parents('.row').find('.progress-bar').css('width', 0);
                         if(typeof callback.FileUploaded == 'function'){
                             callback.FileUploaded(up,file, info);
-                        } else {
-                            ele.parents('.row').find('input[name="picture"]').val(sourceLink);
                         }
                     },
                     'Error': function(up, err, errTip) {
                         //上传出错时，处理相关的事情
-                        CHelper.notify('error','上传系统异常','');
+
                     },
                     'UploadComplete': function() {
                         //队列文件处理完毕后，处理相关的事情
