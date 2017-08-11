@@ -269,33 +269,33 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.2.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462"
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/doctrine/inflector/e11d84c6e018beedd929cff5220969a3c6d1d462.zip",
-                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462",
+                "url": "https://files.phpcomposer.com/files/doctrine/inflector/90b2128806bfde671b6952ab8bea493942c1fdae.zip",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.2"
+                "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
+                "psr-0": {
+                    "Doctrine\\Common\\Inflector\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -332,7 +332,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2017-07-22T12:18:28+00:00"
+            "time": "2015-11-06T14:35:42+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -383,26 +383,26 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.4.27",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "c5b8a02a34a52c307f16922334c355c5eef725a6"
+                "reference": "5139cebc8293b6820b91aef6f4b4e18bde33c9b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/illuminate/container/c5b8a02a34a52c307f16922334c355c5eef725a6.zip",
-                "reference": "c5b8a02a34a52c307f16922334c355c5eef725a6",
+                "url": "https://files.phpcomposer.com/files/illuminate/container/5139cebc8293b6820b91aef6f4b4e18bde33c9b2.zip",
+                "reference": "5139cebc8293b6820b91aef6f4b4e18bde33c9b2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.4.*",
-                "php": ">=5.6.4"
+                "illuminate/contracts": "5.2.*",
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -421,30 +421,30 @@
                 }
             ],
             "description": "The Illuminate Container package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-05-24T14:15:53+00:00"
+            "homepage": "http://laravel.com",
+            "time": "2016-08-01T13:49:14+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.4.27",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "31f0193eb14aa3ee07841dc254081425616e79f0"
+                "reference": "22bde7b048a33c702d9737fc1446234fff9b1363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/illuminate/contracts/31f0193eb14aa3ee07841dc254081425616e79f0.zip",
-                "reference": "31f0193eb14aa3ee07841dc254081425616e79f0",
+                "url": "https://files.phpcomposer.com/files/illuminate/contracts/22bde7b048a33c702d9737fc1446234fff9b1363.zip",
+                "reference": "22bde7b048a33c702d9737fc1446234fff9b1363",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.4"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -463,33 +463,33 @@
                 }
             ],
             "description": "The Illuminate Contracts package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-04-19T20:17:43+00:00"
+            "homepage": "http://laravel.com",
+            "time": "2016-08-08T11:46:08+00:00"
         },
         {
             "name": "illuminate/events",
-            "version": "v5.4.27",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
-                "reference": "ebdca3b0305e9fc954afb9e422c4559482cd11e6"
+                "reference": "9c16e022d9c4b9f875bf447f4384bd1b952c69b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/illuminate/events/ebdca3b0305e9fc954afb9e422c4559482cd11e6.zip",
-                "reference": "ebdca3b0305e9fc954afb9e422c4559482cd11e6",
+                "url": "https://files.phpcomposer.com/files/illuminate/events/9c16e022d9c4b9f875bf447f4384bd1b952c69b9.zip",
+                "reference": "9c16e022d9c4b9f875bf447f4384bd1b952c69b9",
                 "shasum": ""
             },
             "require": {
-                "illuminate/container": "5.4.*",
-                "illuminate/contracts": "5.4.*",
-                "illuminate/support": "5.4.*",
-                "php": ">=5.6.4"
+                "illuminate/container": "5.2.*",
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -508,28 +508,28 @@
                 }
             ],
             "description": "The Illuminate Events package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-05-02T12:57:00+00:00"
+            "homepage": "http://laravel.com",
+            "time": "2016-08-01T13:49:14+00:00"
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.4.27",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "e0ee832f625fbfadb816a972655b1a66af1a5bda"
+                "reference": "39668a50e0cf1d673e58e7dbb437475708cfb508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/illuminate/filesystem/e0ee832f625fbfadb816a972655b1a66af1a5bda.zip",
-                "reference": "e0ee832f625fbfadb816a972655b1a66af1a5bda",
+                "url": "https://files.phpcomposer.com/files/illuminate/filesystem/39668a50e0cf1d673e58e7dbb437475708cfb508.zip",
+                "reference": "39668a50e0cf1d673e58e7dbb437475708cfb508",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.4.*",
-                "illuminate/support": "5.4.*",
-                "php": ">=5.6.4",
-                "symfony/finder": "~3.2"
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9",
+                "symfony/finder": "2.8.*|3.0.*"
             },
             "suggest": {
                 "league/flysystem": "Required to use the Flysystem local and FTP drivers (~1.0).",
@@ -539,7 +539,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -558,42 +558,44 @@
                 }
             ],
             "description": "The Illuminate Filesystem package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-05-18T14:37:58+00:00"
+            "homepage": "http://laravel.com",
+            "time": "2016-08-17T17:21:29+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v5.4.27",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "a42393b56d0ec75f55e760f2a47bcf85a17a278d"
+                "reference": "510230ab62a7d85dc70203f4fdca6fb71a19e08a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/illuminate/support/a42393b56d0ec75f55e760f2a47bcf85a17a278d.zip",
-                "reference": "a42393b56d0ec75f55e760f2a47bcf85a17a278d",
+                "url": "https://files.phpcomposer.com/files/illuminate/support/510230ab62a7d85dc70203f4fdca6fb71a19e08a.zip",
+                "reference": "510230ab62a7d85dc70203f4fdca6fb71a19e08a",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "~1.0",
                 "ext-mbstring": "*",
-                "illuminate/contracts": "5.4.*",
-                "paragonie/random_compat": "~1.4|~2.0",
-                "php": ">=5.6.4"
+                "illuminate/contracts": "5.2.*",
+                "paragonie/random_compat": "~1.4",
+                "php": ">=5.5.9"
             },
             "replace": {
                 "tightenco/collect": "self.version"
             },
             "suggest": {
                 "illuminate/filesystem": "Required to use the composer class (5.2.*).",
-                "symfony/process": "Required to use the composer class (~3.2).",
-                "symfony/var-dumper": "Required to use the dd function (~3.2)."
+                "jeremeamia/superclosure": "Required to be able to serialize closures (~2.2).",
+                "symfony/polyfill-php56": "Required to use the hash_equals function on PHP 5.5 (~1.0).",
+                "symfony/process": "Required to use the composer class (2.8.*|3.0.*).",
+                "symfony/var-dumper": "Improves the dd function (2.8.*|3.0.*)."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -615,36 +617,36 @@
                 }
             ],
             "description": "The Illuminate Support package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-06-15T12:35:32+00:00"
+            "homepage": "http://laravel.com",
+            "time": "2016-08-05T14:49:58+00:00"
         },
         {
             "name": "illuminate/view",
-            "version": "v5.4.27",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "423652ea1c4c4c2f6494bd6b8cfb6eb943c5ba75"
+                "reference": "a3f9252c7d0dce3c2a9e70e40e9397f62850aa23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/illuminate/view/423652ea1c4c4c2f6494bd6b8cfb6eb943c5ba75.zip",
-                "reference": "423652ea1c4c4c2f6494bd6b8cfb6eb943c5ba75",
+                "url": "https://files.phpcomposer.com/files/illuminate/view/a3f9252c7d0dce3c2a9e70e40e9397f62850aa23.zip",
+                "reference": "a3f9252c7d0dce3c2a9e70e40e9397f62850aa23",
                 "shasum": ""
             },
             "require": {
-                "illuminate/container": "5.4.*",
-                "illuminate/contracts": "5.4.*",
-                "illuminate/events": "5.4.*",
-                "illuminate/filesystem": "5.4.*",
-                "illuminate/support": "5.4.*",
-                "php": ">=5.6.4",
-                "symfony/debug": "~3.2"
+                "illuminate/container": "5.2.*",
+                "illuminate/contracts": "5.2.*",
+                "illuminate/events": "5.2.*",
+                "illuminate/filesystem": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9",
+                "symfony/debug": "2.8.*|3.0.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -663,21 +665,21 @@
                 }
             ],
             "description": "The Illuminate View package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-06-07T13:32:57+00:00"
+            "homepage": "http://laravel.com",
+            "time": "2016-08-01T13:49:14+00:00"
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.10",
+            "version": "v1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
+                "reference": "965cdeb01fdcab7653253aa81d40441d261f1e66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/paragonie/random_compat/634bae8e911eefa89c1abfbf1b66da679ac8f54d.zip",
-                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "url": "https://files.phpcomposer.com/files/paragonie/random_compat/965cdeb01fdcab7653253aa81d40441d261f1e66.zip",
+                "reference": "965cdeb01fdcab7653253aa81d40441d261f1e66",
                 "shasum": ""
             },
             "require": {
@@ -712,7 +714,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-13T16:27:32+00:00"
+            "time": "2017-03-13T16:22:52+00:00"
         },
         {
             "name": "psr/log",
@@ -814,16 +816,16 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.3.6",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "7c13ae8ce1e2adbbd574fc39de7be498e1284e13"
+                "reference": "697c527acd9ea1b2d3efac34d9806bf255278b0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/debug/7c13ae8ce1e2adbbd574fc39de7be498e1284e13.zip",
-                "reference": "7c13ae8ce1e2adbbd574fc39de7be498e1284e13",
+                "url": "https://files.phpcomposer.com/files/symfony/debug/697c527acd9ea1b2d3efac34d9806bf255278b0a.zip",
+                "reference": "697c527acd9ea1b2d3efac34d9806bf255278b0a",
                 "shasum": ""
             },
             "require": {
@@ -834,12 +836,13 @@
                 "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
             },
             "require-dev": {
+                "symfony/class-loader": "~2.8|~3.0",
                 "symfony/http-kernel": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -866,20 +869,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-28T15:27:31+00:00"
+            "time": "2016-07-30T07:22:48+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.6",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "baea7f66d30854ad32988c11a09d7ffd485810c4"
+                "reference": "3eb4e64c6145ef8b92adefb618a74ebdde9e3fe9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/finder/baea7f66d30854ad32988c11a09d7ffd485810c4.zip",
-                "reference": "baea7f66d30854ad32988c11a09d7ffd485810c4",
+                "url": "https://files.phpcomposer.com/files/symfony/finder/3eb4e64c6145ef8b92adefb618a74ebdde9e3fe9.zip",
+                "reference": "3eb4e64c6145ef8b92adefb618a74ebdde9e3fe9",
                 "shasum": ""
             },
             "require": {
@@ -888,7 +891,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -915,7 +918,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T21:01:25+00:00"
+            "time": "2016-06-29T05:40:00+00:00"
         },
         {
             "name": "yiisoft/yii2",
