@@ -45,7 +45,7 @@
                     <div class="col-sm-4">
                         <select name="display_status" class="form-control select2" style="width: 100%">
                             <option value="1"{{ ($data['display_status'] == 1)? "":"selected" }}  >是</option>
-                            <option value="0" {{ ($data['display_status'] == 1)? "":"selected" }} >否</option>
+                            <option value="0" {{ ($data['display_status'] == 0)? "":"selected" }} >否</option>
                         </select>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     <label class="col-sm-2 control-label">是否上架</label>
                     <div class="col-sm-4">
                         <select name="shelf_status" class="form-control select2" style="width: 100%">
-                            <option value="0" {{ ($data['shelf_status'] == 1)? "":"selected" }} >否</option>
+                            <option value="0" {{ ($data['shelf_status'] == 0)? "":"selected" }} >否</option>
                             <option value="1"  {{ ($data['shelf_status'] == 1)? "selected":"" }}>是</option>
                         </select>
                     </div>

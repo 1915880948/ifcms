@@ -74,10 +74,9 @@
                 ],
                 'columnDefs' : [
                     {
-                        targets: 8,
+                        targets: 1,
                         render: function (a, b, c, d) {
-                            var html = '<button type="button" class="btn btn-primary row-edit" data-id="'+c.id+'">编辑</button>&nbsp;' +
-                                '<button type="button" class="btn btn-danger row-delete" data-id="'+c.id+'">删除</button>';
+                            var html = '<img src="'+c.picture+'" style=" width: 40px; heigth:20px;"  />';
                             return html;
                         }
                     },
@@ -108,6 +107,15 @@
                             return c.create_time;
                         }
                     },
+                    {
+                        targets: 8,
+                        render: function (a, b, c, d) {
+                            var html = '<button type="button" class="btn btn-primary row-edit" data-id="'+c.id+'">编辑</button>&nbsp;' +
+                                '<button type="button" class="btn btn-danger row-delete" data-id="'+c.id+'">删除</button>';
+                            return html;
+                        }
+                    }
+
                 ],
                 'initComplete': function(a, b) {
                     $(this).closest(".dataTables_wrapper").prepend('<div class="dataTables_buttons hidden-sm-down actions"><a href="/style/create" class="btn btn-info waves-effect fright">添加</a></div>'),
