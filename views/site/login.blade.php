@@ -47,7 +47,7 @@
                     }, {
                         success: function (response) {
                             layer.msg('登录成功', {time: 1200}, function () {
-                                location.href = '/admin/create';
+                                location.href = '/product/list';
                             });
                         },
                         failure: function () {
