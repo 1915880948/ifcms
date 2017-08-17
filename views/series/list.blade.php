@@ -76,8 +76,11 @@
                     {
                         targets: 1,
                         render: function (a, b, c, d) {
-                            var html = '<img src="'+c.picture+'" style=" width: 40px; heigth:20px;"  />';
-                            return html;
+                            if( c.portrait ){
+                                var html = '<img src="'+c.portrait+'" style="width: 20px; height: 20px;"/>';
+                                return html;
+                            }
+                            return ;
                         }
                     },
                     {

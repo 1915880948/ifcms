@@ -30,9 +30,9 @@
         <!-- Logo -->
         <a href="../../index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>Y</b>R</span>
+            <span class="logo-mini"><b>IF</b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>YR</b>Work</span>
+            <span class="logo-lg"><b>IF</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">

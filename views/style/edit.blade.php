@@ -37,14 +37,14 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">排序值</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="sort" value="{{ $data['sort'] }}" required>
+                        <input type="number" class="form-control" name="sort" value="{{ $data['sort'] }}" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">是否显示在热词</label>
                     <div class="col-sm-4">
                         <select name="display_status" class="form-control select2" style="width: 100%">
-                            <option value="1"{{ ($data['display_status'] == 1)? "":"selected" }}  >是</option>
+                            <option value="1"{{ ($data['display_status'] == 1)? "selected":"" }}  >是</option>
                             <option value="0" {{ ($data['display_status'] == 1)? "":"selected" }} >否</option>
                         </select>
                     </div>
@@ -53,7 +53,7 @@
                     <label class="col-sm-2 control-label">是否上架</label>
                     <div class="col-sm-4">
                         <select name="shelf_status" class="form-control select2" style="width: 100%">
-                            <option value="0" {{ ($data['shelf_status'] == 1)? "":"selected" }} >否</option>
+                            <option value="0" {{ ($data['shelf_status'] == 0)? "":"selected" }} >否</option>
                             <option value="1"  {{ ($data['shelf_status'] == 1)? "selected":"" }}>是</option>
                         </select>
                     </div>
@@ -73,6 +73,12 @@
         $(function(){
             $('.select2').select2();
             $('select[name="tag[]"]').select2({tags: true});
+            //设置表头
+            if($('#id').val() ){
+                $(".box-title").text('风格编辑');
+            }else{
+                $(".box-title").text('风格添加');
+            }
 
             //构建uploader实例
             var qiniu = new Qiniu.UploaderBuilder()
@@ -98,25 +104,55 @@
 
             $('#editForm').submit(function (e) {
                 e.preventDefault();
-                if($('#id').val()){
-                    CHelper.asynRequest('/style/edit', $('#editForm').serialize(), {
-                        success: function () {
-                            layer.msg('提交成功', {time: 1200}, function () {
-                                location.href = '/style/list';
-                            })
-                        }
-                    })
-                } else {
-                    CHelper.asynRequest('/style/create', $('#editForm').serialize(), {
-                        success: function () {
-                            layer.msg('提交成功', {time: 1200}, function () {
-                                location.href = '/style/list';
-                            })
-                        }
-                    })
+                if( checkForm() ){
+                    if($('#id').val()){
+                        CHelper.asynRequest("/style/edit",$("#editForm").serialize(), {
+                            success:function( res ) {
+                                if( res.code == 200 ){
+                                    layer.msg('提交成功(^-^)', {time: 1200}, function () {
+                                        location.href = '/style/list';
+                                    });
+                                }else {
+                                    layer.msg('风格名称重复 -_-#', {time: 1200});
+                                }
+                            }
+                        });
+                    }else {
+                        CHelper.asynRequest("/style/edit",$("#editForm").serialize(), {
+                            success:function( res ){
+                                if( res.code == 200 ){
+                                    layer.msg('提交成功(^-^)', {time: 1200}, function () {
+                                        location.href = '/style/list';
+                                    });
+                                }else {
+                                    layer.msg('风格名称重复 -_-#', {time: 1200});
+                                }
+                            }
+                        });
+                    }
                 }
+            });
 
-            })
+            function checkForm() {
+
+                var nameCn = $("#editForm input[name='name_cn']");
+                var nameEn = $("#editForm input[name='name_en']");
+                //var nameEnReg = /[A-Za-z0-9\s]+/;
+                var nameCnReg = /[`~!#\$%\^\&\*\(\)_\+<>\?:"\{\},\.\\\/;'\[\]]/;
+
+                if (nameCnReg.test(nameEn.val() )) {
+                    layer.msg('您输入的英文名称含有特殊字符：<br/>｀～！@$^<>?.[]{}#', {time: 2000});
+                    nameEn.focus();alert(1);
+                    return false;
+                }else if (nameCnReg.test(nameCn.val() )) {
+                    layer.msg('您输入的中文名名称含有特殊字符：<br/>｀～！@$^<>?.[]{}#', {time: 2000});
+                    nameCn.focus();
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+
         });
     </script>
 @stop

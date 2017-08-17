@@ -79,6 +79,9 @@ class AdminController extends Controller {
                 'create_time' => date('Y-m-d H:i:s')
             ];
             $proxy = new Admin();
+            if( $data['username'] !=  htmlspecialchars( $data['username'] ) ){
+                return ['code'=>500];
+            }
             $proxy->setAttributes($data, false);
             if($proxy->save()){
                 return ['code'=>200];
@@ -103,8 +106,12 @@ class AdminController extends Controller {
             if($proxy->password != $data['password']){
                 $proxy->setAttribute('password', md5($data['password']));
             }
+            if( $data['username'] !=  htmlspecialchars( $data['username'] ) ){
+                return ['code'=>500];
+            }
+
             if($proxy->save()){
-                return ['code'=>200];
+                return ['code'=>200,'str'=>htmlspecialchars( $data['username'] ) ];
             }
             return ['code'=>5000,'data'=>$proxy->errors];
         }

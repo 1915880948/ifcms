@@ -57,7 +57,7 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        return $this->redirect('/admin/create');
+        return $this->redirect('/product/list');
     }
 
     /**

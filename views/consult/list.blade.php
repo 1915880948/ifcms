@@ -106,14 +106,16 @@
                     var id = _this.attr('data-id');
                     $('#modal-default').modal();
                     $('#submit').on('click', function () {
-                        CHelper.asynRequest('/consult/answer',{id: id, content: $('#modal-default').find('#content').val()},{
-                            success: function () {
-                                layer.msg('操作成功', {time: 1200}, function () {
-                                    $('#modal-default').modal('hide');
-                                    _table.page(_table.page()).draw(false);
-                                });
-                            }
-                        })
+                        if( checkForm() ){
+                            CHelper.asynRequest('/consult/answer',{id: id, content: $('#modal-default').find('#content').val()},{
+                                success: function () {
+                                    layer.msg('操作成功', {time: 1200}, function () {
+                                        $('#modal-default').modal('hide');
+                                        _table.page(_table.page()).draw(false);
+                                    });
+                                }
+                            })
+                        }
                     })
                 } else if(_this.hasClass('row-delete')){
                     layer.confirm('你确定要执行此操作吗?', {
@@ -130,7 +132,20 @@
 
                     });
                 }
-            })
+            });
+
+            function checkForm() {
+
+                var content = $('#modal-default').find('#content');
+                var contentReg = /[`~\$\^\&\<\>']/;
+                if (contentReg.test(content.val() )) {
+                    layer.msg('您输入的内容含有特殊字符：<br/>｀～！@$^<>?.[]{}#', {time: 2000});
+                    return false;
+                }else {
+                    return true;
+                }
+            }
+
         });
     </script>
 @stop

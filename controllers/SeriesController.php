@@ -35,12 +35,15 @@ class SeriesController extends Controller {
         ];
     }
 
+    //关闭csrf验证
+    public $enableCsrfValidation = false;
+
     public function actionList(){
         if(Yii::$app->request->isAjax){
             Yii::$app->response->format = 'json';
             $start = intval(Yii::$app->request->get('start'));
             $size = intval(Yii::$app->request->get('length',10));
-            $result = Series::find()->andWhere(['status'=>1])->orderBy('id desc')->limit((int)$size)->offset($start)->all();
+            $result = Series::find()->andWhere(['status'=>1])->orderBy('sort desc')->limit((int)$size)->offset($start)->all();
             $count = Series::find()->andWhere(['status'=>1])->count('id');
             return [
                 "recordsTotal" => $count,
@@ -65,11 +68,18 @@ class SeriesController extends Controller {
                 'create_time' => date('Y-m-d H:i:s')
             ];
             $proxy = new Series();
-            $proxy->setAttributes($data, false);
-            if($proxy->save()){
-                return ['code'=>200];
+            $name_cn = Yii::$app->request->post('name_cn');
+            $tag = Series::find()->where(['status' => 1,'name_cn' => $name_cn])->all();
+
+            if( $tag ){
+                return ['code'=>500];
+            }else{
+                $proxy->setAttributes($data, false);
+                if($proxy->save()){
+                    return ['code'=>200];
+                }
+                return ['code'=>5000,'data'=>$proxy->errors];
             }
-            return ['code'=>5000,'data'=>$proxy->errors];
         }
 
         return $this->render('edit',[
@@ -92,11 +102,17 @@ class SeriesController extends Controller {
                 'create_time' => date('Y-m-d H:i:s')
             ];
             $proxy = Series::find()->andWhere(['id'=>$id])->one();
-            $proxy->setAttributes($data);
-            if($proxy->save()){
-                return ['code'=>200];
+            $name_cn = Yii::$app->request->post('name_cn');
+            $tag = Series::find()->where(['status' => 1, 'name_cn' => $name_cn])->andWhere(['!=','id',$id])->all();
+            if( $tag ){
+                return ['code'=>500];
+            }else{
+                $proxy->setAttributes($data, false);
+                if($proxy->save()){
+                    return ['code'=>200];
+                }
+                return ['code'=>5000,'data'=>$proxy->errors];
             }
-            return ['code'=>5000,'data'=>$proxy->errors];
         }
         $id = Yii::$app->request->get('id');
         $data = Series::find()->andWhere(['id'=>$id])->asArray()->one();

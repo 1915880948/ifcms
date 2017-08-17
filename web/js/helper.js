@@ -181,7 +181,7 @@
                 },
                 success: function(response, status){
                     if(typeof callback.success == 'function'){
-                        callback.success(status);
+                        callback.success( response, status);
                     }
                 },
                 complete: function(xhr, status){

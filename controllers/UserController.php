@@ -74,19 +74,18 @@ class UserController extends Controller {
             Yii::$app->response->format = 'json';
             $id = Yii::$app->request->post('id');
             $data = [
-                'nickname' => Yii::$app->request->post('nickname'),
+                'nickname' => trim(Yii::$app->request->post('nickname')),
                 'portrait' => Yii::$app->request->post('portrait'),
                 'gender' => Yii::$app->request->post('gender'),
                 'phone' => Yii::$app->request->post('phone'),
                 'email' => Yii::$app->request->post('email'),
-                'company' => Yii::$app->request->post('company'),
+                'company' => trim(Yii::$app->request->post('company')),
                 'province' => Yii::$app->request->post('province'),
-                'city' => Yii::$app->request->post('city'),
+                'city' => trim(Yii::$app->request->post('city')),
                 'create_time' => date('Y-m-d H:i:s')
             ];
             $proxy = User::find()->andWhere(['id'=>$id])->one();
             $proxy->setAttributes($data,false);
-
             if($proxy->save()){
                 return ['code'=>200];
             }

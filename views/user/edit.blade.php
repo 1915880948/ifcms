@@ -3,6 +3,7 @@
 @section('title')用户编辑@stop
 
 @section('head-css')
+    <link rel="stylesheet" href="/bower_components/select2/dist/css/select2.min.css">
 @stop
 
 @section('content')
@@ -57,16 +58,19 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">省</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="province" value="{{ $data['province'] }}" required>
+                        <input type="hidden" name="province" value="{{ $data['province'] }}">
+                        <select name="style_id" id="province_id" class="form-control select2" style="width: 100%">
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">城市区代码</label>
+                    <label class="col-sm-2 control-label">市</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="city" value="{{ $data['city'] }}" required>
+                        <select id="city_id" class="form-control select2" style="width: 100%">
+                        </select>
+                        <input type="hidden" class="form-control" name="city" value="{{ $data['city'] }}" required>
                     </div>
                 </div>
-
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">提交</button>
@@ -81,6 +85,45 @@
     <script src="/js/qiniu4js.min.js"></script>
     <script>
         $(function(){
+            var provinceJson = {};
+            var cityJson = {};
+            var strProvince = $("#editForm input[name='province']").val();
+            var strCity = $("#editForm input[name='city']").val();
+
+            $("#province_id").empty();
+            $.ajaxSettings.async = false;
+            $.getJSON("/province.json",function(data){
+                var proHtml = "<option>--请选择--</option>";
+                provinceJson = data.zone;
+                for( var i=0; i<data.zone.length; i++){
+                    proHtml += '<option value="'+ data.zone[i].name + '"'+ (strProvince == data.zone[i].name ? 'selected':'') +'>'+data.zone[i].name+'</option>';
+                }
+                $("#province_id").append(proHtml);
+                initCity( $("#province_id").val() );
+            });
+
+            $("#province_id").change(function(){
+                 initCity( $("#province_id").val() );
+            });
+
+            function initCity(provinceId) {
+                $("#city_id").empty();
+
+                for( var j=0;j<provinceJson.length; j++){
+                    if( provinceJson[j].name == provinceId ){
+                        cityJson = provinceJson[j].zone; break;
+                    }
+                }
+                var cityHtml = "<option>--请选择--</option>";
+                for( var k=0;k<cityJson.length;k++){
+                    cityHtml += '<option value="'+cityJson[k].name+'"'+( strCity == cityJson[k].name?'selected':'')+'>'+cityJson[k].name+'</option>';
+                }
+                $("#city_id").append(cityHtml);
+
+                $("#editForm input[name='province']").val( provinceId );
+
+            }
+
             //构建uploader实例
             var qiniu = new Qiniu.UploaderBuilder()
                 .debug(false)
@@ -105,25 +148,60 @@
 
             $('#editForm').submit(function (e) {
                 e.preventDefault();
+                var city =  $("#city_id").val() ;
+                $("#editForm input[name='city']").val( city );
                 if($('#id').val()){
-                    CHelper.asynRequest('/user/edit', $('#editForm').serialize(), {
-                        success: function () {
-                            layer.msg('提交成功', {time: 1200}, function () {
-                                location.href = '/user/list';
-                            })
-                        }
-                    })
+                    if( checkForm() ){
+                        CHelper.asynRequest('/user/edit', $('#editForm').serialize(), {
+                            success: function () {
+                                layer.msg('提交成功(^-^)', {time: 1200}, function () {
+                                    location.href = '/user/list';
+                                })
+                            }
+                        })
+                    }else{
+                        return false;
+                    }
                 } else {
                     CHelper.asynRequest('/user/create', $('#editForm').serialize(), {
                         success: function () {
-                            layer.msg('提交成功', {time: 1200}, function () {
+                            layer.msg('提交成功(^-^)', {time: 1200}, function () {
                                 location.href = '/user/list';
                             })
                         }
                     })
                 }
 
-            })
+            });
+
+            function checkForm() {
+                var strEmail = $("#editForm input[name='email']");
+                var strPhone = $("#editForm input[name='phone']");
+                var strCompany = $("#editForm input[name='company']");
+                var emailReg = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+                var phoneReg = /^1[0-9]{10}$/;
+                var companyReg = /[`~!@#\$%\^\&\*\(\)_\+<>\?:"\{\},\.\\\/;'\[\]]/;
+
+
+                if (!emailReg.test(strEmail.val() )) {
+                    layer.msg('请输入正确的邮箱地址！！', {time: 2000});
+                    strEmail.focus();
+                    return false;
+                }
+
+                if (!phoneReg.test(strPhone.val() )) {
+                    layer.msg('您输入的电话号码不正确!', {time: 2000});
+                    strPhone.focus();
+                    return false;
+                }
+
+                if (companyReg.test(strCompany.val())) {
+                    layer.msg('您输入的公司名称含有特殊字符：<br/>｀～！@$^<>?.[]{}#', {time: 2000});
+                    strCompany.focus();
+                    return false;
+                }
+                return true;
+            }
         });
     </script>
 @stop

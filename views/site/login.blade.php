@@ -45,10 +45,14 @@
                         username: username,
                         password: password
                     }, {
-                        success: function (response) {
-                            layer.msg('登录成功', {time: 1200}, function () {
-                                location.href = '/product/list';
-                            });
+                        success: function ( res,status ) {
+                            if( res.code == 500 ){
+                                layer.msg('用户名或密码错误', {time: 1200});
+                            }else{
+                                layer.msg('登录成功', {time: 1200}, function () {
+                                     location.href = '/product/list';
+                                });
+                            }
                         },
                         failure: function () {
                             layer.msg('用户名或密码错误');

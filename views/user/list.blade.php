@@ -22,7 +22,7 @@
                     <th>邮箱</th>
                     <th>公司</th>
                     <th>省</th>
-                    <th>城市区代码</th>
+                    <th>市</th>
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
@@ -76,8 +76,11 @@
                     {
                         targets: 1,
                         render: function (a, b, c, d) {
-                            var html = '<img src="'+c.portrait+'" style="width: 20px; height: 20px;" alt="头像"/>';
-                            return html;
+                            if( c.portrait ){
+                                var html = '<img src="'+c.portrait+'" style="width: 20px; height: 20px;"/>';
+                                return html;
+                            }
+                            return ;
                         }
                     },
                     {
