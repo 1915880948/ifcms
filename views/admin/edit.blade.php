@@ -58,7 +58,5 @@
 
         })
     });
-    https://github.com/1915880948/ifcms.git
-
 </script>
 @stop
